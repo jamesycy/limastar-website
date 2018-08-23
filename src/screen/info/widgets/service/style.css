@@ -1,0 +1,48 @@
+.service-trigger {
+    width: auto;
+    padding: 0 30px;
+    border: .5px solid lightgrey;
+    border-radius: 1%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-trigger i {
+    transition: all 300ms ease-out;
+    color: rgb(50, 50, 50);
+}
+
+.service-content {
+    transition: all 300ms ease-out;
+    padding: 10px 40px;
+    box-shadow: 0 0 20px -10px lightgrey;
+}
+
+.service-content * {
+    line-height: 30px;
+}
+
+.service-content.hide {
+    height: 0;
+    opacity: 0;
+}
+
+.service-content.hide * {
+    display: none;
+}
+
+.service-trigger:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .service-content {
+        padding: 10px 10px;
+    }
+
+    .service-content * {
+        font-size: .9rem;
+    }
+}

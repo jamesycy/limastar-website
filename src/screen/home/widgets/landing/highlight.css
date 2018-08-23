@@ -1,0 +1,45 @@
+div.highlight {
+    width: 100%;
+    display: flex;
+
+    margin-bottom: 50px;
+}
+
+div.highlight-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+h2.highlight-title {
+    color: #110849;
+    font-weight: normal;
+}
+
+div.highlight-item p {
+    font-size: .9rem;
+    letter-spacing: 2px;
+    width: 60%;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+div.highlight-divider {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    div.highlight {
+        flex-direction: column;
+    }
+
+    div.highlight-divider {
+        border: .5px solid #110849;
+        width: 20px;
+        height: 0px;
+        display: block;
+        margin: 0 auto;
+    }
+}

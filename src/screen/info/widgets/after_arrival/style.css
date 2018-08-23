@@ -1,0 +1,48 @@
+.after-arrival-trigger {
+    width: auto;
+    padding: 0 30px;
+    border: .5px solid lightgrey;
+    border-radius: 1%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.after-arrival-trigger i {
+    transition: all 300ms ease-out;
+    color: rgb(50, 50, 50);
+}
+
+.after-arrival-content {
+    transition: all 300ms ease-out;
+    padding: 10px 20px;
+    box-shadow: 0 0 20px -10px lightgrey;
+}
+
+.after-arrival-content * {
+    line-height: 30px;
+}
+
+.after-arrival-content.hide {
+    height: 0;
+    opacity: 0;
+}
+
+.after-arrival-content.hide * {
+    display: none;
+}
+
+.after-arrival-trigger:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .after-arrival-content {
+        padding: 10px 0;
+    }
+
+    .after-arrival-content * {
+        font-size: .8rem;
+    }
+}

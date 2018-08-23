@@ -1,0 +1,50 @@
+.helper-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px 45px;
+}
+
+.back-link {
+    text-transform: none;
+    color: darkblue;
+}
+
+.helper-detail-content {
+    margin-top: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.helper-detail-biodata {
+    width: 50%;
+    background: #555;
+    height: 550px;
+}
+
+.helper-detail-text-container {
+    width: 45%;
+    padding: 10px;
+}
+
+.helper-detail-text-container h3 {
+    font-weight: normal;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+}
+
+.helper-detail-text-container b {
+    font-weight: bolder;
+    font-size: 1.15rem;
+}
+
+@media (max-width: 1000px) {
+    .helper-detail-content {
+        flex-direction: column;
+        padding: 10px 30px;
+    }
+
+    .helper-detail-biodata, .helper-detail-text-container {
+        width: auto;
+    }
+}

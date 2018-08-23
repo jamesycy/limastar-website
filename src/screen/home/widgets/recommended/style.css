@@ -1,0 +1,35 @@
+div.recommended-container {
+    width: auto;
+    padding: 10px 40px 45px;
+    background: #f6f6f6;
+}
+
+div.inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.recommended-title, .recommended-description {
+    text-align: center;
+    font-weight: normal;
+}
+
+.recommended-title {
+    color: #323232;
+    margin-bottom: 0;
+}
+
+.recommended-description {
+    color: #7f8c8d;
+}
+
+.helper-list-horizontal {
+    min-width: 100%;
+    padding: 40px 0;
+    overflow-x: auto;
+    display: flex;
+}
+
+.helper-list-horizontal::-webkit-scrollbar {
+    display: none;
+}

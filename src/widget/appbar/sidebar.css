@@ -1,0 +1,73 @@
+.overlay-container.hidden, .overlay.hiddden {
+    opacity: 0 !important;
+    z-index: -999999 !important;
+}
+
+sidebar.hidden {
+    width: 0 !important;
+    height: 0 !important;
+    z-index: -999999 !important;
+}
+
+.sidebar.hidden li {
+    display: none;
+}
+
+div.overlay-container {
+    position: fixed;
+    z-index: 9999;
+    background: transparent;
+
+    display: flex;
+
+    width: 100%;
+    height: calc(100% - 71px);
+
+    transition: all 300ms ease-in-out;
+}
+
+div.sidebar {
+    border-top: 1px solid lightgrey;
+    z-index: 99999;
+    width: 200px;
+    height: 100%;
+    background-color: #FFF;
+    opacity: 1;
+}
+
+div.sidebar li {
+    color: black;
+    list-style: none;
+    border-bottom: 1px solid transparent;
+    transition: all 300ms ease-in-out;
+
+    padding: 5px 0;
+    margin: 8px 12px;
+}
+
+.sidebar li a {
+    text-transform: none;
+    text-decoration: none;
+    color: #555;
+}
+
+.sidebar li:hover {
+    border-bottom: 1px solid #110849;
+    color: #110849;
+    cursor: pointer;
+}
+
+div.overlay {
+    flex-grow: 1;
+    background: black;
+    opacity: .4;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 800px) {
+    .overlay-container, .sidebar, .overlay {
+        width: 0 !important;
+        height: 1 !important;
+    }
+}

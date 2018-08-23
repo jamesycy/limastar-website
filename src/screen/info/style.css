@@ -1,0 +1,14 @@
+.info-container {
+    margin: 0 auto;
+    padding: 10px 20px;
+    max-width: 1200px;
+}
+
+.info-title-wrapper h2 {
+    padding: 0 20px;
+    margin-bottom: 0;
+}
+
+.info-content-wrapper {
+    padding: 10px 20px;
+}

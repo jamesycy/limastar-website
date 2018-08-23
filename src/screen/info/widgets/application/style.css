@@ -1,0 +1,61 @@
+.application-trigger {
+    width: auto;
+    padding: 0 30px;
+    border: .5px solid lightgrey;
+    border-radius: 1%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.application-trigger i {
+    transition: all 300ms ease-out;
+    color: rgb(50, 50, 50);
+}
+
+.application-content {
+    transition: all 300ms ease-out;
+    padding: 10px 40px;
+    box-shadow: 0 0 20px -10px lightgrey;
+}
+
+.application-content * {
+    line-height: 30px;
+}
+
+.application-content.hide {
+    height: 0;
+    opacity: 0;
+}
+
+.application-content.hide * {
+    display: none;
+}
+
+.application-content img {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.application-trigger:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .application-content {
+        padding: 10px 10px;
+    }
+
+    .application-content * {
+        font-size: .9rem;
+    }
+
+    .application-title {
+        font-size: 1rem;
+    }
+
+    .application-content img {
+        width: 100%;
+    }
+}
