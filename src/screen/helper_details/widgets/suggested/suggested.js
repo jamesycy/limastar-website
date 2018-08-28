@@ -21,7 +21,7 @@ class SuggestedHelpers extends React.Component<> {
                             (helper, index) => (
                                 <Link to={`/helpers/${helper.id}`} className="helper-detail-link" key={index}>
                                     <div key={index} className="helper-detail-list-item">
-                                        { helper.avatar ? <img src={helper.avatar} alt="" className="photo" /> : <span className="photo"/> }
+                                        { helper.avatar ? <img src={helper.avatar} alt="" className="photo" draggable={false} /> : <span className="photo"/> }
                                         <h2>{ helper.name }</h2>
                                         <h3>{ helper.nationality }</h3>
                                     </div>

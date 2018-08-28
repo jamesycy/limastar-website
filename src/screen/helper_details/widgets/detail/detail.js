@@ -7,7 +7,7 @@ export default (props) => (
     <h2 className="helper-detail-title">{ props.helper.name }</h2>
     <hr/>
     <div className="helper-detail-content">
-        <img className="helper-detail-biodata" src={props.helper.avatar} alt="" />
+        <img className="helper-detail-biodata" src={props.helper.avatar} alt="" draggable={false} />
         <div className="helper-detail-text-container">
             <h3><b>Name:</b> { props.helper.name }</h3>
             <h3><b>Nationality:</b> { props.helper.nationality }</h3>
