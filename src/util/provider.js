@@ -9,70 +9,76 @@ export class Provider extends React.Component {
         loading: false,
     }
 
+    subscription = null;
+    detail_subcription = null;
+
     toggleLoadingState = () => {
         this.setState({ loading: true })
     }
 
+    unsubscribe = () => {
+        if (this.subscription !== null) this.subscription()
+        if (this.detail_subcription !== null) this.detail_subcription()
+    }
+
     allFeatured = async () => {
-        this.toggleLoadingState()
-
-        const state = this.state
-        state.helpers = []
-
-        const request = await firebase.firestore().collection("helpers")
+        this.subscription = firebase.firestore().collection("helpers")
             .where("available", "==", true)
-            .where("featured", "==", true)
-            .limit(15).get()
-
-        request.docs.forEach(doc => {
-            state.helpers.push(doc.data())
-            state.loading = false
-            this.setState(state)
-        })
-
-        this.setState({ loading: false })
+            .limit(15)
+            .onSnapshot((snapshot) => {
+                this.setState({ loading: true, helpers: [] })
+                snapshot.docs.forEach((doc) => {
+                    this.setState((state) => {
+                        state.helpers.push({...doc.data(), id: doc.id})
+                        state.loading = false
+                        return state
+                    })
+                })
+            })
     }
 
-    getDetail = async (id: string) => {
-        this.toggleLoadingState()
-
-        const state = this.state
-
-        const request = await firebase.firestore().collection("helpers").doc(id).get()
-        state.helper = request.data()
-        state.loading = false
-        this.setState(state)
-    }
-
-    getRecommended = async (tripid: string) => {
-        this.toggleLoadingState()
-
-        const state = this.state
-        state.helpers = []
-
-        const request = await firebase.firestore().collection("helpers")
+    allHelpers = () => {
+        this.subscription = firebase.firestore().collection("helpers")
             .where("available", "==", true)
-            .where("tripid", "==", tripid)
-            .get();
-        request.docs.forEach(doc => {
-            state.helpers.push(doc.data())
-        })
-        state.loading = false
-        this.setState(state)
+            .limit(20)
+            .onSnapshot((snapshot) => {
+                this.setState({ loading: true, helpers: [] })
+                snapshot.docs.forEach((doc) => {
+                    this.setState((state) => {
+                        state.helpers.push({...doc.data(), id: doc.id})
+                        state.loading = false
+                        return state
+                    })
+                })
+            })
     }
 
-    allHelpers = async () => {
-        this.toggleLoadingState()
-
-        const state = this.state
-        state.helpers = []
-
-        const request = await firebase.firestore().collection("helpers").where("available", "==", true).limit(20).get()
-        request.docs.forEach(doc => {
-            state.helpers.push(doc.data())
-            state.loading = false
-            this.setState(state)
+    getDetail = (id) => {
+        this.subscription = firebase.firestore().collection("helpers").doc(id)
+        .onSnapshot((snapshot) => {
+            this.setState({ loading: true, helper: {} })
+            this.setState({ loading: false, helper: {...snapshot.data(), id: snapshot.id }})
         })
+    }
+
+    getRecommended = () => {
+        this.detail_subcription = firebase.firestore().collection("helpers")
+            .where("available", "==", true)
+            .where("tripid", "==", this.state.helper.tripid || "")
+            .onSnapshot((snapshot) => {
+                this.setState({ loading: true, helpers: [] })
+                snapshot.docs.forEach((doc) => {
+                    this.setState(state => {
+                        state.helpers.push({...doc.data(), id: doc.id})
+                        state.loading = false
+                        return state
+                    })
+                })
+            })
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe()
     }
 
     render() {
@@ -83,7 +89,8 @@ export class Provider extends React.Component {
                     allFeatured: this.allFeatured,
                     allHelpers: this.allHelpers,
                     getDetail: this.getDetail,
-                    getRecommended: this.getRecommended
+                    getRecommended: this.getRecommended,
+                    unsubscribe: this.unsubscribe
                 }
             }}>
                 {this.props.children}

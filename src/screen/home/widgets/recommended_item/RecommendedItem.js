@@ -11,7 +11,7 @@ class RecommendedItem extends React.Component<any> {
     render() {
         return (
             <div className="helper-list-item" onClick={this.navigateToHelper.bind(this)}>
-                <img src={logo} alt="" draggable={false} />
+                <img src={this.props.helper.avatar || logo} alt="" draggable={false} />
 
                 <div className="item-text-container">
                     <p>{ this.props.helper.name }</p>

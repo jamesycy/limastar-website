@@ -7,9 +7,12 @@ import Details from './widgets/detail/detail'
 import SuggestedHelpers from './widgets/suggested/suggested'
 
 class HelperDetail extends React.Component<any> {
-    async componentDidMount() {
-        await this.props.context.actions.getDetail(this.props.match.params.id)
-        this.props.context.actions.getRecommended(this.props.context.state.helper.tripid)
+    componentDidMount() {
+        this.props.context.actions.getDetail(this.props.match.params.id)
+    }
+
+    componentWillUnmount() {
+        this.props.context.actions.unsubscribe()
     }
 
     render() {

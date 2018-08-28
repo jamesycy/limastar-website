@@ -10,6 +10,10 @@ class Recommended extends React.Component<{}> {
         this.props.context.actions.allFeatured()
     }
 
+    componentWillUnmount() {
+        this.props.context.actions.unsubscribe()
+    }
+
     render() {
         const { context } = this.props
         return (

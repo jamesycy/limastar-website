@@ -11,6 +11,10 @@ class HelpersPage extends React.Component<any> {
         this.props.context.actions.allHelpers()
     }
 
+    componentWillUnmount() {
+        this.props.context.actions.unsubscribe()
+    }
+
     render() {
         const { context } = this.props
         return (
@@ -22,15 +26,6 @@ class HelpersPage extends React.Component<any> {
                 { context.state.loading && <Loading/> }
                 { context.state.helpers && context.state.helpers.map((helper, index) => (
                     <React.Fragment key={index}>
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
-                        <ListItem helper={helper} />
                         <ListItem helper={helper} />
                     </React.Fragment>
                 )) }
