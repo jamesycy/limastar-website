@@ -19,7 +19,7 @@ class SuggestedHelpers extends React.Component<> {
                         { helpers.length <= 0 && <h4>There are no helper that match the criteria.</h4> }
                         { helpers.map(
                             (helper, index) => (
-                                <Link to={`/helpers/${helper.id}`} className="helper-detail-link">
+                                <Link to={`/helpers/${helper.id}`} className="helper-detail-link" key={index}>
                                     <div key={index} className="helper-detail-list-item">
                                         { helper.avatar ? <img src={helper.avatar} alt="" className="photo" /> : <span className="photo"/> }
                                         <h2>{ helper.name }</h2>
