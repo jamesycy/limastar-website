@@ -24,11 +24,16 @@ class HelpersPage extends React.Component<any> {
                     <Link to="/search"><i className="fas fa-filter"/></Link>
                 </div>
                 { context.state.loading && <Loading/> }
-                { context.state.helpers && context.state.helpers.map((helper, index) => (
+                { !context.state.loading && context.state.helpers && context.state.helpers.map((helper, index) => (
                     <React.Fragment key={index}>
                         <ListItem helper={helper} />
                     </React.Fragment>
                 )) }
+                { this.props.context.state.helpers && this.props.context.state.helpers.length % 10 === 0 ?
+                    <button className="helper-load-more" onClick={() => context.actions.loadMore()}>Load More Helpers</button>
+                    :
+                    <button className="helper-load-more" >No More Helpers</button>
+                }
             </div>
         )
     }

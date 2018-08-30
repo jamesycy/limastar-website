@@ -12,6 +12,7 @@ import HelpersPage from './screen/helpers/helpers';
 import HelperDetail from './screen/helper_details/helper_detail';
 import InfoPage from './screen/info/info';
 import ContactsPage from './screen/contacts/contacts';
+import SearchPage from './screen/search/Search';
 
 export default class App extends React.Component<any> {
     render() {
@@ -28,6 +29,7 @@ export default class App extends React.Component<any> {
                                     <Route exact path="/helpers/:id" component={HelperDetail} />
                                     <Route exact path="/info" component={InfoPage} />
                                     <Route exact path="/contacts" component={ContactsPage} />
+                                    <Route exact path="/search" component={SearchPage} />
                                     <Route path="**" component={NotFound} />
                                 </Switch>
                             </div>

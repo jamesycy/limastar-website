@@ -1,0 +1,49 @@
+.search-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.filter-row {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+}
+
+.chip {
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: none;
+    background: transparent;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    line-height: 30px;
+    font-size: 14px;
+    height: 30px;
+    padding: 0 15px;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.chip.active {
+    background: #f1f1f1;
+    border: 1px solid transparent;
+}
+
+.chip:hover {
+    cursor: pointer;
+    background: #f1f1f1;
+    border: 1px solid transparent;
+}
+
+@media(max-width: 200px) {
+    .chip {
+        font-size: 12px;
+    }
+}
